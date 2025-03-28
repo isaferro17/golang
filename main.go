@@ -2,6 +2,6 @@ package main
 import "fmt"
 
 func main() {
-	a,b:= 10,3
-	fmt.Println("A soma é:", a + b)
+	a+=1 
+	fmt.Println("Incrementar a", a)
 }
