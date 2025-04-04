@@ -41,4 +41,5 @@ for index, value := range names {
 for index, value := range ages{
 fmt.Println("o índice é", index, "e o valor", value)
 }
+
 }
