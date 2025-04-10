@@ -3,14 +3,24 @@ package main
 import "fmt"      
 
 func main() {
-  var idade int
-	fmt.Print("Digite sua idade: ")
-  fmt.Scan(&idade)
-	if idade < 18 {
-		fmt.Println("Você é menor de idade")
-	} else if idade <= 60 {
-		fmt.Println("Você é adulto")
-	} else {
-		fmt.Println("Você é idoso")
+	var s, v float64
+	var c string
+	fmt.Print("Saldo inicial: ")
+	fmt.Scan(&s)
+	for {
+		fmt.Print("Comando (sacar/depositar/parar): ")
+		fmt.Scan(&c)
+		if c == "sacar" {
+			fmt.Print("Valor: ")
+			fmt.Scan(&v)
+			s -= v
+		} else if c == "depositar" {
+			fmt.Print("Valor: ")
+			fmt.Scan(&v)
+			s += v
+		} else if c == "parar" {
+			break
+		}
+		fmt.Println("Saldo:", s)
 	}
 }
