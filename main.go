@@ -2,25 +2,37 @@ package main
 
 import "fmt"      
 
-func main() {
-	var s, v float64
-	var c string
-	fmt.Print("Saldo inicial: ")
-	fmt.Scan(&s)
-	for {
-		fmt.Print("Comando (sacar/depositar/parar): ")
-		fmt.Scan(&c)
-		if c == "sacar" {
-			fmt.Print("Valor: ")
-			fmt.Scan(&v)
-			s -= v
-		} else if c == "depositar" {
-			fmt.Print("Valor: ")
-			fmt.Scan(&v)
-			s += v
-		} else if c == "parar" {
-			break
-		}
-		fmt.Println("Saldo:", s)
+var saldo float64
+
+func depositar(valor float64) {
+	saldo += valor 
+	fmt.Println("Seu saldo atual é:", saldo)
+}
+
+func sacar(valor float64) {
+	if valor > saldo {
+		fmt.Println("Saldo insuficiente para saque.")
+	} else {
+		saldo -= valor
+		fmt.Println("Saque realizado. Seu saldo atual é:", saldo)
 	}
 }
+
+func main(){
+	saldo = 200
+	var opção int
+	fmt.Println("Digite 1 para depositar ou 2 para sacar:")
+	fmt.Scan(&opção)
+	if opção == 1  {
+		var valor float64
+		fmt.Println("Digite o valor")
+		fmt.Scan(&valor)
+		depositar(valor)
+	} else {
+		var valor float64
+		fmt.Println("Digite o valor")
+		fmt.Scan(&valor)
+		sacar(valor)
+	}
+}
+
