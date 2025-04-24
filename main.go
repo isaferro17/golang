@@ -2,17 +2,18 @@ package main
 
 import "fmt"      
 
-func main() {
-votos := make(map[string]int)
+func main () {
+ estoque := map[string]int{}
+ estoque["Coxinha"] = 10
+ estoque["Pão de Queijo"] = 15
+ estoque["Refrigerante"] = 20
+estoque["Coxinha"] -=2
+estoque["Pão de Queijo"] -=1
+ 
 
-votos["Ana"] += 1
-votos["Carlos"] += 1
-votos["Ana"] += 1
-votos["Bruno"] += 1
-votos["Ana"] += 1
-votos["Carlos"] += 1
-
-for candidato, total:= range votos{
-	fmt.Printf("%s recebeu %d recebeu\n", candidato, total)
+fmt.Println("Estoque Atual:")
+for produto, quantidade := range estoque {
+	fmt.Printf("%s: %d\n", produto, quantidade)
 }
+
 }
