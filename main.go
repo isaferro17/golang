@@ -3,19 +3,16 @@ package main
 import "fmt"      
 
 func main() {
-capitais := map[string]string{
-"SP" : "São Paulo",
-"RJ" : "Rio de Janeiro",
-"ES" : "Espírito Santo",
+votos := make(map[string]int)
 
-}
-capitais["BH"] = "Belo Horizonte"
+votos["Ana"] += 1
+votos["Carlos"] += 1
+votos["Ana"] += 1
+votos["Bruno"] += 1
+votos["Ana"] += 1
+votos["Carlos"] += 1
 
-for k,v := range capitais {
-	fmt.Println("Sigla, nome", k,v)
-}
-delete(capitais, "AC")
-for k,v := range capitais {
-	fmt.Println("Sigla, nome", k,v)
+for candidato, total:= range votos{
+	fmt.Printf("%s recebeu %d recebeu\n", candidato, total)
 }
 }
